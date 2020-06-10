@@ -1,10 +1,69 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Serving Web Content</title>
+    <title>AMEZSTORE</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
-<p th:text="'Hello, ' + ${name} + '!'" />
+<nav class="navbar1">
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+                <a class="brand" href="index.html">
+                    <i class="fa fa-shopping-cart fa-2x"></i>
+                    &nbsp;
+                    AMEZSTORE
+                </a>
+            </div>
+            <div class="col-10">
+                <div class="row">
+                    <div class="col-7">
+                        <from class="form-inline">
+                            <input class="form-control" id="inputfld" type="search" aria-label="Search" placeholder="Search categories or products" />
+                            <button class="btn btn-outline-success">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </from>
+                    </div>
+                    <div class="col-3 nav-item borderXwidth">
+                        <a class="nav-link" href="login.html">LOGIN | SIGNUP</a>
+                    </div>
+                    <div class="col-2 nav-item borderXwidth">
+                        <a class="nav-link" href="faq.html">FAQ</a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-2 nav-item borderXwidth">
+                        <a class="nav-link" href="faq.html">ALL PRODUCTS</a>
+                    </div>
+                    <div class="col-1 nav-item borderXwidth">
+                        <a class="nav-link" href="faq.html">MEN</a>
+                    </div>
+                    <div class="col-2 nav-item borderXwidth">
+                        <a class="nav-link" href="faq.html">WOMEN</a>
+                    </div>
+                    <div class="col-1 nav-item borderXwidth">
+                        <a class="nav-link" href="faq.html">KIDS</a>
+                    </div>
+                    <div class="col-3 nav-item borderXwidth">
+                        <a class="nav-link" href="faq.html">WORLD CRAFTS</a>
+                    </div>
+                    <div class="col-2 nav-item borderXwidth">
+                        <a class="nav-link" href="faq.html">NEW ARRIVALS</a>
+                    </div>
+                    <div class="col-1 nav-item borderXwidth">
+                        <a class="nav-link" href="faq.html">
+                            <i class="fa fa-shopping-cart"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
 </body>
 </html>
