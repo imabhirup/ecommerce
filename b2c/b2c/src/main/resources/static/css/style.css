@@ -1,70 +1,57 @@
-
-.container {
-    padding: 10px 0px 0px 0px;
-    color: white;
-    font-size: 14px;
+.navbar {
+  padding:0rem;
+  border-bottom: black solid 1px;
+}
+.fsize {
+  font-family: Verdana, Arial, Helvetica, sans-serif !important;
+  font-size: 2rem !important;
 }
 
-.navbar1 {
-    background-color:whitesmoke;
-    width: 100%;
-    border-bottom: black solid 1px;
-}
-
-.brand {
-    color:#007bff;;
-}
-
-#inputfld {
-    width: 25em;
-}
-
-.nav-item {
-    display: flex;
-    justify-content: center;
-}
- .nav-link {
-     color: black !important;
-     text-decoration: none;
-     display: block;
+.dropdown .dropdown-menu {
+  border-radius:0;
  }
 
- div.borderXwidth a:before, div.borderXwidth a:after
-{
-    position: absolute;
-    opacity: 0;
-    width: 0%;
-    height: 3px;
-    content: '';
-    background: black;
-    transition: all 0.5s;
+.sml {
+  font-size: x-small;
 }
-
-div.borderXwidth a:before
-{
-    left: 0px;
-    top: 0px;
-}
-
-div.borderXwidth a:after
-{
-    right: 0px;
-    bottom: 0px;
-}
-
-div.borderXwidth a:hover:before, div.borderXwidth a:hover:after
-{
-    opacity: 1;
-    width: 100%;
-}
-
- div a {
-     text-decoration: none;
+/* Medium devices (tablets, 768px and up)
+The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+  border-radius:0;
  }
- div a:hover {
-     text-decoration: none;
- }
+}
 
-.row {
-    margin-bottom: 2px;
+@media (min-width: 480px) {
+	#inputfld {
+    width: 14em;
+}
+}
+@media (min-width: 520px) {
+	#inputfld {
+    width: 18em;
+}
+}
+@media (min-width:1200px) {
+	#inputfld {
+    width: 24em;
+}
+}
+
+
+.borderXwidth :hover {
+    border-bottom: orange solid 1px;
+ 	font-size: large;
+ 	transition: all 0.5s;
+}
+.sml :hover {
+    border-bottom: orange solid 1px;
+  font-size: small;
+  transition: all 0.5s;
+}
+.img {
+    height:500px !important;
+    width:100%;
 }
