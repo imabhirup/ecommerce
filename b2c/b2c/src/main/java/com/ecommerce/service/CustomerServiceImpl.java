@@ -17,4 +17,12 @@ public class CustomerServiceImpl {
     public boolean isCustomerExist(String email) {
         return customerRepository.findByEmail(email).size() > 0;
     }
+
+    public boolean isCustomerAuthenticated(String email, String pwd) {
+        if (customerRepository.findByEmail(email).size() == 1) {
+            Customer cust = customerRepository.findByEmail(email).stream().findFirst().get();
+            return (cust.getPassword().equals(pwd));
+        }
+        return false;
+    }
 }
