@@ -37,22 +37,23 @@
             </li>
 
             <li class="nav-item active sml">
-                <a class="nav-link text-dark" href="#">LOGIN
-                    <i class="fa fa-lock" aria-hidden="true"></i>
-                </a>
-            </li>
-
-            <li class="nav-item active sml">
-                <a class="nav-link text-dark" href="#">SIGNUP
-                    <i class="fa fa-user-plus" aria-hidden="true"></i>
-                </a>
-            </li>
-
-            <li class="nav-item active sml">
                 <a class="nav-link text-dark" href="#">FAQ
                     <i class="fa fa-sticky-note" aria-hidden="true"></i>
                 </a>
             </li>
+            <div th:if="${!isLoggedIn}">
+                <li class="nav-item active sml">
+                    <a class="nav-link text-dark" href="/create-account">Create Account
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                    </a>
+                </li>
+
+                <li class="nav-item active sml">
+                    Welcome, Guest</li>
+            </div>
+            <div th:unless="${!isLoggedIn}">
+                <div th:text=" 'Hi,' + ${customerName}">Hi, User</div>
+            </div>
         </ul>
 
         <!-- 2nd row -->

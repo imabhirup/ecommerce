@@ -4,6 +4,7 @@ import com.ecommerce.dao.entity.Customer;
 import com.ecommerce.dao.entity.CustomerRepository;
 import com.ecommerce.form.LoginForm;
 import com.ecommerce.service.CustomerServiceImpl;
+import com.ecommerce.service.SessionService;
 import main.java.com.ecommerce.form.RegisterForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -29,8 +30,9 @@ public class AccountPageController {
 
 	@PostMapping("/login")
 	public String login(@ModelAttribute LoginForm loginForm, Model model) {
-		if (customerServiceImpl.isCustomerAuthenticated(loginForm.getEmail(), loginForm.getPwd())) {
-			return "homepage";
+		if (customerServiceImpl.isCustomerAuthenticated(loginForm.getEmail(),
+				loginForm.getPwd())) {
+			return "redirect:/homepage";
 		}
 		model.addAttribute("error", "Email Id or Password is incorrect" );
 		model.addAttribute("registerForm", new RegisterForm());
@@ -51,6 +53,8 @@ public class AccountPageController {
 				registerForm.getPwd(), registerForm.getPhoneNumber());
 		customerServiceImpl.save(customer);
 		model.addAttribute("registerForm", new RegisterForm());
+		model.addAttribute("successMsg", "Customer Registered successfully with id "
+				+ registerForm.getEmailId() );
 		return "createaccount";
 	}
 

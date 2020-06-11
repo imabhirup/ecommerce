@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 public class CustomerServiceImpl {
     @Autowired
     private CustomerRepository customerRepository;
+    @Autowired
+    private SessionService sessionService;
     public void save(final Customer customer) {
         customerRepository.save(customer);
     }
@@ -21,8 +23,15 @@ public class CustomerServiceImpl {
     public boolean isCustomerAuthenticated(String email, String pwd) {
         if (customerRepository.findByEmail(email).size() == 1) {
             Customer cust = customerRepository.findByEmail(email).stream().findFirst().get();
-            return (cust.getPassword().equals(pwd));
+            if (cust.getPassword().equals(pwd)) {
+                sessionService.getCurrentSession().setAttribute("customer", cust);
+                return true;
+            }
         }
         return false;
+    }
+
+    public Customer getCurrentCustomer() {
+        return (Customer) sessionService.getCurrentSession().getAttribute("customer");
     }
 }
