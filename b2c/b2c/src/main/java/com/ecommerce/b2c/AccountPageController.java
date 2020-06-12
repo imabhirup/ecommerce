@@ -32,7 +32,7 @@ public class AccountPageController {
 	public String login(@ModelAttribute LoginForm loginForm, Model model) {
 		if (customerServiceImpl.isCustomerAuthenticated(loginForm.getEmail(),
 				loginForm.getPwd())) {
-			return "redirect:/homepage";
+			return "redirect:/";
 		}
 		model.addAttribute("error", "Email Id or Password is incorrect" );
 		model.addAttribute("registerForm", new RegisterForm());
