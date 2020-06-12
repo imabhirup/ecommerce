@@ -2,29 +2,84 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../static/css/style2.css" th:href="@{/css/style2.css}" rel="stylesheet" />
+
+    <script src="https://codepen.io/FlorinPop17/pen/vPKWjd" rel="script"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
 </head>
 <body>
-<p th:text="${error}"></p>
- <br>
-<div class="row">
-    <div class="col-sm-6">
-        <form action="#" th:action="@{/login}" th:object="${loginForm}" method="post">
-            <p>Email Id <input type="text" th:field="*{email}" /></p>
-            <p>Password <input type="password" th:field="*{pwd}" /></p>
-            <p><input type="submit" value="Login" /> </p>
+<h2>WELCOME TO CUSTOMER AUTHENTICATION</h2>
+
+<div class="error" th:text="${error}"></div>
+
+<div class="container" id="container">
+    <div class="form-container sign-up-container">
+        <form action="#" th:action="@{/register}" th:object="${registerForm}" method="post">
+            <h1>Create Account</h1>
+            <br />
+            <input type="text" placeholder="First Name" th:field="*{firstName}"/>
+            <input type="text" placeholder="Last Name" th:field="*{lastName}"/>
+            <input type="email" placeholder="Email" th:field="*{emailId}"/>
+            <input type="number" placeholder="Mobile Number" th:field="*{phoneNumber}"/>
+            <input type="password" placeholder="Password" th:field="*{pwd}" />
+            <input type="checkbox" id="terms_and_conditions" value="1" onclick="terms_changed(this)" />
+            <label for="terms_and_conditions">I agree all Terms & Services.</label>
+            <button type="submit" id="submit_button" disabled>Sign Up</button>
         </form>
     </div>
-    <div class="col-sm-6">
-        <form action="#" th:action="@{/register}" th:object="${registerForm}" method="post">
-            <p>First Name <input type="text" th:field="*{firstName}" /></p>
-            <p>Last Name <input type="text" th:field="*{lastName}" /></p>
-            <p>Email Id <input type="text" th:field="*{emailId}" /></p>
-            <p>Password <input type="password" th:field="*{pwd}" /></p>
-            <p>Phone Number <input type="text" th:field="*{phoneNumber}" /></p>
-            <p><input type="submit" value="Register" /> </p>
+    <div class="form-container sign-in-container">
+        <form action="#" th:action="@{/login}" th:object="${loginForm}" method="post">
+            <h1>Sign in</h1>
+            <br />
+            <input type="email" placeholder="Email" th:field="*{email}"/>
+            <input type="password" placeholder="Password" th:field="*{pwd}"/>
+            <a href="#">Forgot your password ?</a>
+            <button type="submit">Sign In</button>
         </form>
+    </div>
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+                <h1>Welcome Back!</h1>
+                <p>To keep connected with us please login with your personal info</p>
+                <button class="ghost" id="signIn">Sign In</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+                <h1>Hello, Friend!</h1>
+                <p>Enter your personal details and start journey with us</p>
+                <button class="ghost" id="signUp" >Sign Up</button>
+            </div>
+        </div>
     </div>
 </div>
 
+
+<script>
+    const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('container');
+
+signUpButton.addEventListener('click', () => {
+	container.classList.add("right-panel-active");
+});
+
+signInButton.addEventListener('click', () => {
+	container.classList.remove("right-panel-active");
+});
+
+
+
+function terms_changed(termsCheckBox){
+
+    if(termsCheckBox.checked){
+
+        document.getElementById("submit_button").disabled = false;
+    } else{
+
+        document.getElementById("submit_button").disabled = true;
+    }
+}
+</script>
 </body>
 </html>
