@@ -2,7 +2,7 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link href="../static/css/style2.css" th:href="@{/css/style2.css}" rel="stylesheet" />
+    <link href="../static/css/login.css" th:href="@{/css/login.css}" rel="stylesheet" />
 
     <script src="https://codepen.io/FlorinPop17/pen/vPKWjd" rel="script"></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
@@ -19,11 +19,15 @@
         <form action="#" th:action="@{/register}" th:object="${registerForm}" method="post">
             <h1>Create Account</h1>
             <br />
-            <input type="text" placeholder="First Name" th:field="*{firstName}"/>
-            <input type="text" placeholder="Last Name" th:field="*{lastName}"/>
-            <input type="email" placeholder="Email" th:field="*{emailId}"/>
-            <input type="number" placeholder="Mobile Number" th:field="*{phoneNumber}"/>
-            <input type="password" placeholder="Password" th:field="*{pwd}" />
+            <input type="text" placeholder="First Name" required title="Please Enter Your First Name" th:field="*{firstName}"/>
+            <input type="text" placeholder="Last Name" required title="Please Enter Your Last Name" th:field="*{lastName}"/>
+            <input type="email" placeholder="Email" required title="Please Enter Valid Mail Id" th:field="*{emailId}"/>
+            <input type="text" placeholder="Mobile Number" required
+                   pattern="[6-9]{1}[0-9]{9}" title="Enter Valid Mobile Number" th:field="*{phoneNumber}"/>
+            <input type="password" placeholder="Password" required
+                   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                   title="Must contain at least one number and one uppercase and lowercase letter, and at least 6"
+                   th:field="*{pwd}" />
             <input type="checkbox" id="terms_and_conditions" value="1" onclick="terms_changed(this)" />
             <label for="terms_and_conditions">I agree all Terms & Services.</label>
             <button type="submit" id="submit_button" disabled>Sign Up</button>

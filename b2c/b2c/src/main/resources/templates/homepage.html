@@ -3,7 +3,7 @@
 <head>
     <title>AMEZSTORE</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+    <link href="../static/css/home.css" th:href="@{/css/home.css}" rel="stylesheet" />
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
@@ -42,6 +42,18 @@
                 </a>
             </li>
 
+            <li class="nav-item active sml" th:if="${!isLoggedIn}">
+                <a class="nav-link text-dark" href="#">Cart
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                </a>
+            </li>
+
+            <li class="nav-item active" th:unless="${!isLoggedIn}">
+                <a class="nav-link text-dark" href="#">Cart
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                </a>
+            </li>
+
 
             <li class="nav-item active dropdown " th:unless="${!isLoggedIn}">
                 <a class="nav-link dropdown-toggle text-dark" href="#" th:text=" 'Hi,' + ${customerName}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hi, User
@@ -51,8 +63,10 @@
                         <i class="fa fa-user-circle" aria-hidden="true"></i>
                     </a>
                     <hr />
-                    <a class="dropdown-item" href="#">Cart</a>
-                    <a class="dropdown-item" href="#">Order</a>
+                    <a class="dropdown-item" href="#">Wishlist</a>
+                    <a class="dropdown-item" href="#">Notification</a>
+                    <a class="dropdown-item" href="#">My Order</a>
+                    <a class="dropdown-item" href="#">Gift Coupon</a>
                     <a class="dropdown-item" href="#">FAQ</a>
                     <hr />
                     <a class="dropdown-item" href="/logout">Logout
