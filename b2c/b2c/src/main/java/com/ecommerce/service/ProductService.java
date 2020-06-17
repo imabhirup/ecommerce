@@ -24,7 +24,7 @@ public class ProductService {
     MediaRepository mediaRepository;
 
     public ProductData getProduct(String code) {
-        Product product = productRepository.findById(code).get();
+        Product product = productRepository.findById(code);
         ProductData productData = new ProductData();
         productData.setName(product.getName());
         productData.setId(product.getId());
