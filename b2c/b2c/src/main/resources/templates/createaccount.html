@@ -12,7 +12,10 @@
 
 <h2>WELCOME TO CUSTOMER AUTHENTICATION</h2>
 
-<div class="error" th:text="${error}"></div>
+<div class="alertBord">
+    <p class="error" th:text="${error}"></p>
+    <p class="success" th:text="${successMsg}"></p>
+</div>
 
 <div class="container" id="container">
     <div class="form-container sign-up-container">
